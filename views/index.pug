@@ -1,0 +1,14 @@
+extends layout.pug
+
+block append head
+    link(type='text/css' rel='stylesheet' href="/css/index.css")
+
+include errors
+
+block title
+    | #{__('List to buy')}
+
+block content
+    div(class="welcome")
+        h1 #{__('Welcome message')}
+        h3 #{__('Website description')}

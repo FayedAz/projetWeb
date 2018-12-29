@@ -1,0 +1,61 @@
+mixin myTable(table)
+
+    
+    table(class="table articles")
+        thead(class="thead-dark")
+            tr
+                th
+                th #{__('article')}
+                th #{__('qty')}
+                th #{__('measure')}
+                th
+                th
+        tbody
+            each article in table
+                
+                - var bought = article.bought
+                if bought
+                    tr(class="bought")
+                        td
+                        td #{article.name}
+                        td #{article.quantity}
+                        td #{article.measure}
+                        td
+                            form(
+                                method="POST" 
+                                action="/admin/cancelBoughtArticle")
+                                input(type="hidden" name="_csrf" value=csrf)
+                                input(type="hidden" name="_id" value=article._id)
+                                button(class="btn btn-danger" type="submit") Annuler
+                        td
+                            form(
+                                method="POST"
+                                action="/admin/deleteArticle")
+                                input(type="hidden" name="_csrf" value=csrf)
+                                input(type="hidden" name="_id" value=article._id)
+                                button(class="btn btn-link" type="submit")
+                                            i(class="material-icons") delete
+                else
+                    tr
+                        td
+                        td #{article.name}
+                        td #{article.quantity}
+                        td #{article.measure}
+                        td
+                            form(
+                                method="POST" 
+                                action="/admin/archiveArticle")
+                                input(type="hidden" name="_csrf" value=csrf)
+                                input(type="hidden" name="_id" value=article._id)
+                                button(class="btn btn-success" type="submit") Acheter           
+                        td
+                            form(
+                                method="POST"
+                                action="/admin/deleteArticle")
+                                input(type="hidden" name="_csrf" value=csrf)
+                                input(type="hidden" name="_id" value=article._id)
+                                button(class="btn btn-link" type="submit")
+                                            i(class="material-icons") delete
+    
+
+        

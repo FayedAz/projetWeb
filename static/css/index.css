@@ -1,0 +1,11 @@
+body{
+    background-image: url("/images/workplace.png");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.welcome{
+    color: #ddd;
+    text-align: center;
+    padding-top: 90px;
+}

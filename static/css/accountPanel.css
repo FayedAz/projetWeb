@@ -1,0 +1,11 @@
+body{
+    background-color: #fff;
+}
+
+.bought{
+    background-color: #ddd;
+}
+
+.articles{
+    border: solid 1px black;
+}
